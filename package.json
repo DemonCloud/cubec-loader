@@ -1,0 +1,9 @@
+{
+  "name": "cubec-loader",
+  "version": "0.0.1",
+  "description": "Cubec MVC template loader",
+  "main": "index.js",
+  "repository": "https://github.com/DemonCloud/cubec-loader",
+  "author": "YiJun",
+  "license": "MIT"
+}
