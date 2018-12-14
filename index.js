@@ -3,15 +3,13 @@ const path = require('path');
 const findIncludeReg = /{{@([^}]+)}}/gim;
 const optCubec = {
   comment: /<!--(.*?)-->/gim,
-  tagleft: /\s{2,}</gim,
-  tagright: />\s{2,}/gim,
+  script: /<script>(.*?)<\/script>/gim,
 };
 
 function optCubecTemplate(res = '') {
   return res
     .replace(optCubec.comment, '')
-    .replace(optCubec.tagright, '> ')
-    .replace(optCubec.tagleft, ' <');
+    .replace(optCubec.script,'');
 }
 
 module.exports = function(content, map) {
