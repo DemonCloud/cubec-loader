@@ -2,10 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const findIncludeReg = /{{@([^}]+)}}/gim;
 const optCubec = {
-  line: /[\r\n\f]/gim,
-  quot: /\s*;;\s*/gim,
-  space: /[\x20\xA0\uFEFF]+/gim,
-  assert: /_p\+='(\\n)*'[^+]/gim,
   comment: /<!--(.*?)-->/gim,
   tagleft: /\s{2,}</gim,
   tagright: />\s{2,}/gim,
@@ -13,11 +9,7 @@ const optCubec = {
 
 function optCubecTemplate(res = '') {
   return res
-    .replace(optCubec.line, '')
     .replace(optCubec.comment, '')
-    .replace(optCubec.assert, '')
-    .replace(optCubec.quot, ';')
-    .replace(optCubec.space, ' ')
     .replace(optCubec.tagright, '> ')
     .replace(optCubec.tagleft, ' <');
 }
